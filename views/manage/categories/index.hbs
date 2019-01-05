@@ -1,0 +1,27 @@
+<div class="container">
+    <h1>Categories</h1>
+<p><a href="/manage/categories/add">Add Category</a></p>
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Category Name</th>
+                <th scope="col">Edit </th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each categories}}
+            <tr>
+                <td>{{this._id}}</td>
+                <td>{{this.name}}</td>
+                <td><a href="/manage/categories/edit/{{this._id}}" class="btn btn-primary">Edit</a></td>
+                <td><a href="/manage/categories/delete/{{this._id}}" class="btn btn-danger">Delete</a></td>
+            </tr>
+            {{/each}}
+            
+        </tbody>
+    </table>
+
+
+</div>

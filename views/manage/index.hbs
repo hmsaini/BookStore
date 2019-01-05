@@ -1,0 +1,22 @@
+{{!-- :3000/MANAGE ========== THIS IS THE MANAGE HOME PAGE ======== --}}
+
+<div class="container">
+    <h1>Manager</h1>
+    <p>Welcome to the manager area</p>
+
+
+    <form action="/manage/login" method="post">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username" name="username" placeholder="Enter Username">
+        </div>
+         <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Enter Password">
+        </div>
+
+        <div>
+            <input type="submit" name="submit" value="Login" class="btn btn-primary">
+        </div>
+    </form>
+</div>

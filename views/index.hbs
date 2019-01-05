@@ -1,0 +1,32 @@
+{{!-- <h1>{{title}}</h1>
+<p>Welcome to {{title}}</p> --}}
+
+
+<div class="container">
+  <h1 style="margin-bottom: 60px;margin-top:30px;">Welcome to our BookStore</h1>
+
+  <div class="container">
+    <div class="row">
+      {{#if books}}
+      {{#each books}}
+      <div class="col-md-4" style="margin-bottom:50px;">
+        <h4>{{this.title}}</h4>
+        <img src="/public/images/{{this.cover}}" alt="" class="img-fluid" style="width:330px;height:300px;margin-bottom:10px;">
+        {{!-- <p>{{this.description}}</p> --}}
+        <p>{{this.truncText}}</p>
+        <br>
+        <span>Buy it for ${{this.price}}</span>
+        <hr>
+        <a href="/books/details/{{this._id}}" class="btn btn-primary">Book Details</a>
+        <hr>
+      </div>
+      {{/each}}
+      {{/if}}
+
+
+    </div>
+
+  </div>
+
+
+</div>

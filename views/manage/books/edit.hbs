@@ -1,0 +1,43 @@
+<div class="container">
+    <h1>Edit Details Of Book</h1>
+
+    <form action="/manage/books/edit/{{books._id}}" method="post">
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" id="title" name="title" value="{{books.title}}">
+        </div>
+        <div class="form-group">
+            <label for="author">Author</label>
+            <input type="text" class="form-control" id="author" name="author" value="{{books.author}}">
+        </div>
+        <div class="form-group">
+            <label for="publisher">Publisher</label>
+            <input type="text" class="form-control" id="publisher" name="publisher" value="{{books.publisher}}">
+        </div>
+        <div class="form-group">
+            <label for="price">Price</label>
+            <input type="text" class="form-control" id="price" name="price" value="{{books.price}}">
+        </div>
+        <div class="form-group">
+            <label for="category">Category</label>
+            <select name="category" id="category" class="form-control">
+                {{#each categories}}
+                <option value="{{this.name}}">{{this.name}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label><br>
+            <textarea name="description" id="description" cols="100" rows="10">{{books.description}}</textarea>
+        </div>
+        <div class="form-group">
+            <label for="cover">Cover URL</label>
+            <input type="text" class="form-control" id="cover" name="cover" value="{{books.cover}}">
+        </div>
+
+        <div>
+            <input type="submit" name="submit" value="Edit Book" class="btn btn-primary">
+        </div>
+    
+    </form>
+</div>

@@ -1,0 +1,15 @@
+<div class="container">
+    <h1>Edit Category</h1>
+
+    <form action="/manage/categories/edit/{{categories._id}}" method="post">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" name="name" value="{{categories.name}}">
+        </div>
+
+        <div>
+            <input type="submit" name="submit" value="Edit Category" class="btn btn-primary">
+        </div>
+    
+    </form>
+</div>

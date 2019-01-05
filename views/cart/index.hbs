@@ -1,0 +1,63 @@
+<div class="container">
+    <h1>Your Cart</h1>
+    <h2>Your Shopping Cart <span><a href="/pages/cart/remove" style="font-size:18px;"><b>Empty Cart</b></a></span></h2>
+
+    {{#if cart.items}}
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">Item</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Total </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {{#each cart.items}}
+            <tr>
+                <td><a href="books/details/1">{{this.title}}</a></td>
+                <td>{{this.qty}}</td>
+                {{!-- <td>${{@math key="{{this.price}}" method="multiply" operand="{{this.qty}}"}}</td> --}}
+                <td>${{this.price}}</td>
+            </tr>
+            {{/each}}
+
+        </tbody>
+    </table>
+
+    <div class="row">
+        <div class="col-md-6">
+            <h4>Total: <strong>${{cart.total}}</strong></h4>
+        </div>
+        <div class="col-md-6">
+<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+{{!-- Specify Buy now button --}}
+<input type="hidden" name="cmd" value="_xclick">
+{{!-- Specify paypal email --}}
+<input type="hidden" name="business" value="techguyseller@sandbox.com">
+{{!-- item name --}}
+<input type="hidden" name="item_name" value="TextBooks Books">
+{{!-- item id --}}
+<input type="hidden" name="item_number" value="1">
+{{!-- currency code --}}
+<input type="hidden" name="currency_code" value="USD">
+{{!-- price --}}
+<input type="hidden" name="amount" value="{{cart.total}}">
+{{!-- specify shipping --}}
+<input type="hidden" name="no_shipping" value="1">
+{{!-- return method --}}
+<input type="hidden" name="rm" value="2">
+{{!-- return url --}}
+<input type="hidden" name="return" value="http://localhost:3000">
+{{!-- cancel return url --}}
+<input type="hidden" name="cancel_return" value="http:localhost:3000">
+
+{{!-- button  --}}
+<input type="submit" name="submit" value="Buy Now" class="btn btn-primary">
+</form>
+        </div>
+    </div>
+    {{else}}
+    <p>There is no items in your cart</p>
+    {{/if}}
+</div>
