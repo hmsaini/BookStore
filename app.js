@@ -73,7 +73,7 @@ app.use(expressValidator({
 	}
 }));
 
-app.use(cookieParser());
+// app.use(cookieParser());
 app.use("/public",express.static(path.join(__dirname, 'public')));
 
 // Connect flash

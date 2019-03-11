@@ -13,8 +13,7 @@ router.get('/', function (req, res, next) {
   var sess = req.session;
   if (sess) {
     res.redirect('/manage/books');
-  } 
-  else {
+  } else {
     res.render('manage/index', {
       title: 'BookStore',
       layout: 'manage/layout'
@@ -195,21 +194,21 @@ router.post('/categories/add', function (req, res, next) {
     req.flash('error_msg', "please fill out required field");
     res.location('/manage/categories/add');
     res.redirect('/manage/categories/add');
-  }
+  } 
 
-  var newCategory = new Category({
-    name: name
-  });
+    var newCategory = new Category({
+      name: name
+    });
 
-  newCategory.save(function (err) {
-    if (err) {
-      console.log('save error', err);
-    }
+    newCategory.save(function (err) {
+      if (err) {
+        console.log('save error', err);
+      }
 
-    req.flash('success_msg', "Category Added Successfully!");
-    res.location('/manage/categories');
-    res.redirect('/manage/categories');
-  });
+      req.flash('success_msg', "Category Added Successfully!");
+      res.location('/manage/categories');
+      res.redirect('/manage/categories');
+    });
 });
 
 // Display Category edit form
@@ -338,15 +337,15 @@ router.post('/register', function (req, res, next) {
 
 // ==========================  Manager Login  ================================
 router.get('/login', function (req, res, next) {
-  // var sess = req.session;
-  // if (sess) {
-  //   res.redirect('/manage/books');
-  // } else {
-    res.render('manage/index', {
-      'title': 'LogIn',
-      layout: 'manage/layout'
-    });
-  // }
+  // var sess = req.session.username;
+  if (req.session.username) {
+    res.redirect('/manage/books');
+  } else {
+  res.render('manage/index', {
+    'title': 'LogIn',
+    layout: 'manage/layout'
+  });
+  }
 });
 
 var manager = db.collection('Manager');
